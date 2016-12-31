@@ -11,7 +11,7 @@ const NotFoundRoute = Router.NotFoundRoute
 
 const routes = (
   <Router history={appHistory}>
-    <Route component={Main} />
+    <Route  path='/' component={Main} />
   </Router>
 )
 

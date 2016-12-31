@@ -14,8 +14,9 @@ require('dotenv').config();
 
 
 // Routes
-const routes = require('./routes');
-server.use(routes);
+server.get('/', function (req, res) {
+  res.sendFile(path.join(__dirname + './app/public/index.html'))
+})
 
 // Headers config
 const allowCrossDomain = function(req, res, next) {

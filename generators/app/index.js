@@ -30,7 +30,7 @@ module.exports = Generator.extend({
       this.destinationPath('package.json'), {
         name: this.props.name,
         author: this.props.author,
-        description: this.props.description
+        message: this.props.message
       }
     );
   },
@@ -57,13 +57,17 @@ module.exports = Generator.extend({
     );
     // Routes
     this.fs.copy(
-      this.templatePath('_routes/_routes.js'),
-      this.destinationPath('routes/routes.js')
+      this.templatePath('_routes'),
+      this.destinationPath('routes')
     );
     // Database
     this.fs.copy(
-      this.templatePath('_db'),
-      this.destinationPath('db')
+      this.templatePath('_db/_migrations'),
+      this.destinationPath('db/migrations')
+    );
+    this.fs.copy(
+      this.templatePath('_.env'),
+      this.destinationPath('.env')
     );
     // Models
     this.fs.copy(
